@@ -1,0 +1,51 @@
+# ==============================================================
+# ARCHIVO DE CONFIGURACIÓN DE EJEMPLO
+# Copia este archivo como `application.properties` y crea un
+# archivo `.env` en la raíz del proyecto (junto al pom.xml) con
+# los valores de JWT_SECRET, DB_USERNAME y DB_PASSWORD.
+# ==============================================================
+
+# Carga los valores del archivo `.env` de la raíz del proyecto.
+spring.config.import=optional:file:.env[.properties]
+
+spring.thymeleaf.cache=false
+
+# Servidor
+server.port=8080
+
+# Niveles de log
+logging.level.root=WARN
+logging.level.com.freedom.tareas=WARN
+logging.level.org.springframework=WARN
+logging.level.org.springframework.security=WARN
+logging.level.org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer=ERROR
+logging.level.org.springframework.web=WARN
+logging.level.org.hibernate=WARN
+logging.level.org.hibernate.SQL=WARN
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=WARN
+logging.level.com.zaxxer.hikari=WARN
+
+# ==============================================================
+# BASE DE DATOS
+# ==============================================================
+spring.datasource.url=jdbc:mysql://localhost:3306/freedombd?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=false
+spring.jpa.properties.hibernate.jdbc.batch_size=50
+spring.jpa.properties.hibernate.order_inserts=true
+spring.jpa.open-in-view=false
+
+# ==============================================================
+# AUTENTICACIÓN JWT
+# ==============================================================
+# Clave secreta para firmar y verificar los JWTs (definida en el archivo `.env`).
+jwt.secret=${JWT_SECRET}
+
+# Tiempo de expiración del JWT en milisegundos.
+jwt.expiration=3600000

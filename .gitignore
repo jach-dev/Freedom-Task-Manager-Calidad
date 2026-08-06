@@ -1,0 +1,46 @@
+# ===== Maven / Build =====
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# ===== Secretos y configuración local =====
+application.properties
+.env
+!.env.example
+
+# ===== Sistemas operativos =====
+.DS_Store
+Thumbs.db
+
+# ===== IntelliJ IDEA =====
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ===== VS Code =====
+.vscode/
+
+# ===== Eclipse / STS =====
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# ===== NetBeans =====
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+
+# ===== Logs y archivos temporales =====
+*.log
+*.tmp
+*~
+*.orig
